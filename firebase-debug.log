@@ -1,0 +1,97 @@
+[debug] [2022-05-15T15:16:52.881Z] ----------------------------------------------------------------------
+[debug] [2022-05-15T15:16:52.883Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-05-15T15:16:52.883Z] CLI Version:   10.9.2
+[debug] [2022-05-15T15:16:52.884Z] Platform:      darwin
+[debug] [2022-05-15T15:16:52.884Z] Node Version:  v16.15.0
+[debug] [2022-05-15T15:16:52.889Z] Time:          Sun May 15 2022 17:16:52 GMT+0200 (közép-európai nyári idő)
+[debug] [2022-05-15T15:16:52.889Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-15T15:16:52.954Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-15T15:16:52.954Z] > authorizing via signed-in user (tarkomate99@gmail.com)
+[debug] [2022-05-15T15:16:52.954Z] [iam] checking project cinemaapp-f8ecd for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-05-15T15:16:52.956Z] > refreshing access token with scopes: []
+[debug] [2022-05-15T15:16:52.956Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-15T15:16:53.127Z] <<< HTTP RESPONSE 200 {"date":"Sun, 15 May 2022 15:16:53 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-15T15:16:53.162Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cinemaapp-f8ecd:testIamPermissions [none]
+[debug] [2022-05-15T15:16:53.162Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cinemaapp-f8ecd:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-05-15T15:16:53.976Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cinemaapp-f8ecd:testIamPermissions 200
+[debug] [2022-05-15T15:16:53.976Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cinemaapp-f8ecd:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-05-15T15:16:53.977Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/cinemaapp-f8ecd/serviceAccounts/cinemaapp-f8ecd@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-05-15T15:16:53.977Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/cinemaapp-f8ecd/serviceAccounts/cinemaapp-f8ecd@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-05-15T15:16:54.734Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/cinemaapp-f8ecd/serviceAccounts/cinemaapp-f8ecd@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-05-15T15:16:54.735Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/cinemaapp-f8ecd/serviceAccounts/cinemaapp-f8ecd@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'cinemaapp-f8ecd'...
+[info] 
+[info] i  deploying functions 
+[debug] [2022-05-15T15:16:54.738Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd [none]
+[debug] [2022-05-15T15:16:55.008Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd 200
+[debug] [2022-05-15T15:16:55.008Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd {"projectId":"cinemaapp-f8ecd","projectNumber":"438975219010","displayName":"CinemaApp","name":"projects/cinemaapp-f8ecd","resources":{"hostingSite":"cinemaapp-f8ecd","storageBucket":"cinemaapp-f8ecd.appspot.com","locationId":"europe-west"},"state":"ACTIVE"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2022-05-15T15:16:55.010Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-05-15T15:16:55.011Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-05-15T15:16:55.012Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudbuild.googleapis.com [none]
+[debug] [2022-05-15T15:16:55.013Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/artifactregistry.googleapis.com [none]
+[debug] [2022-05-15T15:16:55.968Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudbuild.googleapis.com 200
+[debug] [2022-05-15T15:16:55.968Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-05-15T15:16:55.972Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/artifactregistry.googleapis.com 200
+[debug] [2022-05-15T15:16:55.972Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/artifactregistry.googleapis.com [omitted]
+[debug] [2022-05-15T15:16:55.988Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/runtimeconfig.googleapis.com 200
+[debug] [2022-05-15T15:16:55.989Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-05-15T15:16:55.993Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudfunctions.googleapis.com 200
+[debug] [2022-05-15T15:16:55.993Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cinemaapp-f8ecd/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-05-15T15:16:55.994Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/adminSdkConfig [none]
+[debug] [2022-05-15T15:16:56.262Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/adminSdkConfig 200
+[debug] [2022-05-15T15:16:56.262Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/adminSdkConfig {"projectId":"cinemaapp-f8ecd","storageBucket":"cinemaapp-f8ecd.appspot.com","locationId":"europe-west"}
+[debug] [2022-05-15T15:16:56.263Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/configs [none]
+[debug] [2022-05-15T15:16:56.599Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/configs 200
+[debug] [2022-05-15T15:16:56.599Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/cinemaapp-f8ecd/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-05-15T15:16:56.603Z] Validating nodejs source
+[debug] [2022-05-15T15:16:58.073Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-05-15T15:16:58.074Z] Building nodejs source
+[debug] [2022-05-15T15:16:58.074Z] Analyzing nodejs backend spec
+[debug] [2022-05-15T15:16:58.076Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-05-15T15:16:58.463Z] Serving at port 9005
+
+[debug] [2022-05-15T15:16:58.546Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-05-15T15:16:58.561Z] shutdown requested via /__/quitquitquit
+
+[debug] [2022-05-15T15:16:58.568Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/cinemaapp-f8ecd/locations/-/functions [none]
+[debug] [2022-05-15T15:16:59.187Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/cinemaapp-f8ecd/locations/-/functions 200
+[debug] [2022-05-15T15:16:59.188Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/cinemaapp-f8ecd/locations/-/functions {"functions":[{"name":"projects/cinemaapp-f8ecd/locations/us-central1/functions/app","httpsTrigger":{"url":"https://us-central1-cinemaapp-f8ecd.cloudfunctions.net/app","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"app","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"cinemaapp-f8ecd@appspot.gserviceaccount.com","updateTime":"2022-05-15T13:48:49.708Z","versionId":"1","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-928405476004.us-central1.cloudfunctions.appspot.com/98a2d527-6a15-4cab-8f34-4ea9b53eb75a.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"cinemaapp-f8ecd\",\"storageBucket\":\"cinemaapp-f8ecd.appspot.com\",\"locationId\":\"europe-west\"}","GCLOUD_PROJECT":"cinemaapp-f8ecd"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"84dd751f-91b5-4dfe-9867-583b57dbc5df","buildName":"projects/438975219010/locations/us-central1/builds/84dd751f-91b5-4dfe-9867-583b57dbc5df","dockerRegistry":"CONTAINER_REGISTRY"}]}
+[debug] [2022-05-15T15:16:59.189Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2alpha/projects/cinemaapp-f8ecd/locations/-/functions [none]
+[debug] [2022-05-15T15:17:00.118Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2alpha/projects/cinemaapp-f8ecd/locations/-/functions 200
+[debug] [2022-05-15T15:17:00.118Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2alpha/projects/cinemaapp-f8ecd/locations/-/functions {}
+[info] 
+The following functions are found in your project but do not exist in your local source code:
+	app(us-central1)
+
+If you are renaming a function or changing its region, it is recommended that you create the new function first before deleting the old one to prevent event loss. For more info, visit https://firebase.google.com/docs/functions/manage-functions#modify
+

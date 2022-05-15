@@ -1,0 +1,18 @@
+<div *ngIf="movies$ | async as movies">
+	<h2>MoviesList</h2>
+	<table class="movieList mat-elevation-z8">
+		<th>Kép</th>
+		<th>Cím</th>
+		<th>Vetítési dátum</th>
+		
+
+		<ng-container *ngFor="let movie of movies">
+			<tr>
+				<td><img [src]="movie.imageUrl" [alt]="movie.imageUrl" class="movieImage"></td>
+				<td>{{ movie.title }}</td>
+				<td>{{ movie.date }}</td>
+			</tr>
+		</ng-container>
+
+	</table>
+</div>
