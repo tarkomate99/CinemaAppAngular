@@ -7,6 +7,15 @@
 	<title>CinemaApp</title>
 </head>
 <body>
-	<app-list-component></app-list-component>
+	<nav>
+		<ul>
+			<li><a routerLink="/" routerLInkActive="active"><fa-icon [icon]="faFilm" class="Icons"></fa-icon>Filmek</a></li>
+			<li *ngIf="authService.isLoggedIn"><a routerLink="/" routerLinkActice="active"><fa-icon [icon]="faTicket" class="Icons"></fa-icon>Foglalások</a></li>
+			<li *ngIf="!authService.isLoggedIn"><a routerLink="/login" routerLinkActice="active">Bejelentkezés</a></li>
+			<li *ngIf="!authService.isLoggedIn"><a routerLink="/register" routerLInkActive="active">Regisztráció</a></li>
+			<li *ngIf="authService.isLoggedIn"><a (click)="authService.SignOut()"><fa-icon [icon]="faArrowRightFromBracket" class="Icons"></fa-icon>Kijelentkezés</a></li>
+		</ul>
+	</nav>
+	<router-outlet></router-outlet>
 </body>
 </html>

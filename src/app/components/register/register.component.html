@@ -1,0 +1,71 @@
+<div class="registerForm">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Regisztráció</h3>
+        <div class="formGroup">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="Felhasználó név"
+            #userName
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="E-mail cím"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Jelszó"
+            #userPwd
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Jelszó újra"
+            #userPwdAgain
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="button"
+            class="btn btn-success registerBtn"
+            value="Regisztráció"
+            (click)="authService.SignUp(userEmail.value, userPwd.value, userPwdAgain.value)"
+          />
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">vagy</span></span>
+        </div>
+        <!-- Continue with Google -->
+        <div class="formGroup">
+          <button
+            type="button"
+            class="btn btn-google"
+            (click)="authService.GoogleAuth()"
+          >
+            <fa-icon [icon]="faGoogle"></fa-icon>
+            Folytassa a Google-lal
+          </button>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span
+          >Van már fiókod?
+          <span class="redirect" routerLink="/login">Jelentkezz be</span></span
+        >
+      </div>
+    </div>
+  </div>
