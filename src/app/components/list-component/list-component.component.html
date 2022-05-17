@@ -1,8 +1,10 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="movies$ | async as movies">
 	<table class="movieList mat-elevation-z8">
 		<th>Kép</th>
 		<th>Cím</th>
 		<th>Vetítési dátum</th>
+		<th colspan="3">Módosítás</th>
 		
 
 		<ng-container *ngFor="let movie of movies">
@@ -10,6 +12,11 @@
 				<td><img [src]="movie.imageUrl" [alt]="movie.imageUrl" class="movieImage"></td>
 				<td>{{ movie.title }}</td>
 				<td>{{ movie.date }}</td>
+				<td>Foglalás</td>
+				<ng-container>
+					<td><mat-icon>add</mat-icon></td>
+					<td><mat-icon>delete</mat-icon></td>
+				</ng-container>
 			</tr>
 		</ng-container>
 
