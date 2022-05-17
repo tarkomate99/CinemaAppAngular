@@ -23,10 +23,12 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './components/modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ListComponentComponent, LoginComponent, routingComponents, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, ModalComponent,
+    AppComponent, ListComponentComponent, LoginComponent, routingComponents, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, ModalComponent, ReservationsComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -42,6 +44,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     FontAwesomeModule,
     OverlayModule,
     MatDialogModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -49,7 +52,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
       registrationStrategy: 'registerWhenStable:30000'
     }),
   ],
-  providers: [ AuthService, MatDialog, ModalComponent ],
+  providers: [ AuthService, MatDialog, ModalComponent, HttpClient, HttpClientModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

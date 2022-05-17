@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListComponentComponent } from './components/list-component/list-component.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: ListComponentComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'reservations', component: RegisterComponent, canActivate: [AuthGuard]},
+  { path: 'reservations', component: ReservationsComponent, canActivate: [AuthGuard]},
   { path: 'verify-email-address', component: VerifyEmailComponent},
 
 ];

@@ -28,7 +28,6 @@ export class ListComponentComponent {
 
 
   openDialog(movie: Movie) {
-    console.log(movie);
     let dialogref = this.dialogRef.open(ModalComponent);
     let instance = dialogref.componentInstance;
     instance.dateText = movie.date;
