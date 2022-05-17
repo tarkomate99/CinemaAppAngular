@@ -4,19 +4,16 @@
 		<th>Kép</th>
 		<th>Cím</th>
 		<th>Vetítési dátum</th>
-		<th colspan="3">Módosítás</th>
+		<th colspan="3" *ngIf="authService.isLoggedIn">Módosítás</th>
 		
 
-		<ng-container *ngFor="let movie of movies">
+		<ng-container *ngFor="let movie of movies; index as i">
 			<tr>
 				<td><img [src]="movie.imageUrl" [alt]="movie.imageUrl" class="movieImage"></td>
-				<td>{{ movie.title }}</td>
-				<td>{{ movie.date }}</td>
-				<td>Foglalás</td>
-				<ng-container>
-					<td><mat-icon>add</mat-icon></td>
-					<td><mat-icon>delete</mat-icon></td>
-				</ng-container>
+				<td #title>{{ movie.title }}</td>
+				<td #date>{{ movie.date }}</td>
+				<td *ngIf="authService.isLoggedIn"><button class="reserveBtn" (click)="openDialog(movies[i])">Foglalás<mat-icon>add_circle</mat-icon></button></td>
+				<td></td>
 			</tr>
 		</ng-container>
 

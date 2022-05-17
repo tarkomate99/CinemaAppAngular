@@ -3,6 +3,8 @@ import { AuthService } from './shared/services/auth.service';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { faTicket } from '@fortawesome/free-solid-svg-icons';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +17,5 @@ export class AppComponent {
   faTicket = faTicket;
   faFilm = faFilm;
   constructor(public authService: AuthService){}
+
 }
