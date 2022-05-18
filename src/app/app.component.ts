@@ -16,6 +16,7 @@ export class AppComponent {
   faArrowRightFromBracket = faArrowRightFromBracket;
   faTicket = faTicket;
   faFilm = faFilm;
+  opened = false;
   constructor(public authService: AuthService){}
 
 }

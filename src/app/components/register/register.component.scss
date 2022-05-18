@@ -2,19 +2,23 @@
 
     width: 400px;
     position:relative;
-    top:30%;
+    top:10%;
     left:50%;
     margin-left:-200px;
-    margin-top:-200px;
     text-align: center;
 
     .formGroup{
         margin-bottom: 10px;
+        color: white;
     }
 
     .registerBtn{
         border: 1px solid black;
         border-radius: 100px;
+    }
+
+    .redirectToLogin{
+        color: white;
     }
 
 }

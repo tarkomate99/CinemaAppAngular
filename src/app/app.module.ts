@@ -25,6 +25,11 @@ import { ModalComponent } from './components/modal/modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReservationsComponent } from './components/reservations/reservations.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -44,6 +49,11 @@ import { ReservationsComponent } from './components/reservations/reservations.co
     FontAwesomeModule,
     OverlayModule,
     MatDialogModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatIconModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

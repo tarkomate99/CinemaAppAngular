@@ -1,14 +1,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div *ngIf="movies">
 	<table class="movieList mat-elevation-z8">
-		<th>Kép</th>
-		<th>Cím</th>
-		<th>Vetítési dátum</th>
-		<th *ngIf="authService.isLoggedIn">Módosítás</th>
-		
-
 		<ng-container *ngFor="let movie of movies; index as i">
-			<tr>
+			<tr class="bottom-border">
 				<td><img [src]="movie.imageUrl" [alt]="movie.imageUrl" class="movieImage"></td>
 				<td #title>{{ movie.title }}</td>
 				<td #date>{{ movie.date }}</td>

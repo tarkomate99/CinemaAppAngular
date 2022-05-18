@@ -1,24 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CinemaApp</title>
 </head>
+
 <body>
-	<header>
-		<img src="../assets/header.jpg" alt="header" class="cinemaHeader">
-	</header>
-	<nav>
-		<ul>
-			<li><a routerLink="/" routerLInkActive="active"><fa-icon [icon]="faFilm" class="Icons"></fa-icon>Filmek</a></li>
-			<li *ngIf="authService.isLoggedIn"><a routerLink="/reservations" routerLinkActice="active"><fa-icon [icon]="faTicket" class="Icons"></fa-icon>Foglalások</a></li>
-			<li *ngIf="!authService.isLoggedIn"><a routerLink="/login" routerLinkActice="active">Bejelentkezés</a></li>
-			<li *ngIf="!authService.isLoggedIn"><a routerLink="/register" routerLInkActive="active">Regisztráció</a></li>
-			<li *ngIf="authService.isLoggedIn"><a (click)="authService.SignOut()"><fa-icon [icon]="faArrowRightFromBracket" class="Icons"></fa-icon>Kijelentkezés</a></li>
-		</ul>
-	</nav>
-	<router-outlet></router-outlet>
+	<mat-sidenav-container class="sideNav">
+		<mat-sidenav [(opened)]="opened">
+			<h3>Menü</h3>
+			<ul>
+				<li><a routerLink="/" routerLInkActive="active">
+						<fa-icon [icon]="faFilm" class="Icons"></fa-icon>Filmek
+					</a></li>
+				<li *ngIf="authService.isLoggedIn"><a routerLink="/reservations" routerLinkActice="active">
+						<fa-icon [icon]="faTicket" class="Icons"></fa-icon>Foglalások
+					</a></li>
+				<li *ngIf="!authService.isLoggedIn"><a routerLink="/login" routerLinkActice="active">Bejelentkezés</a>
+				</li>
+				<li *ngIf="!authService.isLoggedIn"><a routerLink="/register" routerLInkActive="active">Regisztráció</a>
+				</li>
+				<li *ngIf="authService.isLoggedIn"><a (click)="authService.SignOut()">
+						<fa-icon [icon]="faArrowRightFromBracket" class="Icons"></fa-icon>Kijelentkezés
+					</a></li>
+			</ul>
+		</mat-sidenav>
+		<mat-sidenav-content>
+			<header>
+				<img src="../assets/header.jpg" alt="header" class="cinemaHeader">
+			</header>
+			<nav>
+				<ul class="pcMenu">
+					<li><a routerLink="/" routerLInkActive="active">
+							<fa-icon [icon]="faFilm" class="Icons"></fa-icon>Filmek
+						</a></li>
+					<li *ngIf="authService.isLoggedIn"><a routerLink="/reservations" routerLinkActice="active">
+							<fa-icon [icon]="faTicket" class="Icons"></fa-icon>Foglalások
+						</a></li>
+					<li *ngIf="!authService.isLoggedIn"><a routerLink="/login"
+							routerLinkActice="active">Bejelentkezés</a></li>
+					<li *ngIf="!authService.isLoggedIn"><a routerLink="/register"
+							routerLInkActive="active">Regisztráció</a></li>
+					<li *ngIf="authService.isLoggedIn"><a (click)="authService.SignOut()">
+							<fa-icon [icon]="faArrowRightFromBracket" class="Icons"></fa-icon>Kijelentkezés
+						</a></li>
+				</ul>
+				<ul class="mobileMenu">
+					<li>
+						<mat-icon (click)="opened=!opened">menu</mat-icon>Menü
+					</li>
+				</ul>
+			</nav>
+			<router-outlet></router-outlet>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
+
 </body>
+
 </html>

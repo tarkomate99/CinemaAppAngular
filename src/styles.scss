@@ -1,5 +1,87 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Cinema_App-primary: mat.define-palette(mat.$indigo-palette);
+$Cinema_App-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Cinema_App-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Cinema_App-theme: mat.define-light-theme((
+  color: (
+    primary: $Cinema_App-primary,
+    accent: $Cinema_App-accent,
+    warn: $Cinema_App-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Cinema_App-theme);
+
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~bootstrap/dist/css/bootstrap-social.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+@media only screen and (min-width: 1200px){
+
+    .pcMenu{
+        display: block;
+    }
+
+    .mobileMenu{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1200px) {
+
+    nav{
+        width: 100% !important;
+    }
+    header {
+        display: none;
+    }
+
+    .pcMenu{
+        display: none;
+    }
+
+    .mobileMenu{
+        display: inline-block;
+    }
+
+    th{
+        display: none;
+    }
+
+    tbody, td, tfoot, tr{
+        display: block;
+    }
+
+    .movieList{
+        width: 70% !important;
+    }
+
+    .sideNav{
+        display: block !important;
+    }
+
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

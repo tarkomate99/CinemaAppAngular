@@ -18,6 +18,7 @@ export class ModalComponent implements OnInit {
   placesText: string[] = [];
   rows!: Array<number>;
   cols!: Array<number>;
+  price: number = 0;
 
   constructor(private http: HttpClient, public authService: AuthService, private dialogRef: MatDialog, public router: Router) { 
 
@@ -62,12 +63,14 @@ export class ModalComponent implements OnInit {
       element.classList.remove("reservedColor");
       const index = this.placesText.indexOf(position as string,0);
       this.placesText.splice(index, 1);
+      this.price -= 2000;
     }else{
       let row = position.substring(0,position.indexOf(':'));
       let col = position.substring(position.indexOf(':')+1, position.length);
       if(parseInt(row) <=this.rows.length && parseInt(col) <=this.cols.length){
         element.classList.add("reservedColor");
         this.placesText.push(position as string+', ');
+        this.price += 2000;
       }
     }
   }

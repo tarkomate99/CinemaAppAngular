@@ -1,9 +1,10 @@
 .movieList {
 	margin-left: auto;
 	margin-right: auto;
-	width: 1000px;
+	width: 60%;
 	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
+	background-color: white;
 
 	th {
 		background-color: gray;
@@ -14,7 +15,7 @@
 	tr td {
 		text-align: center;
 	}
-
+	
 	tr:nth-child(even) {
 		background-color: #f2f2f2;
 	}
@@ -25,6 +26,11 @@
 	.reserveBtn{
 		border: none;
 		background-color: transparent;
+	}
+
+	.bottom-border{
+		border-bottom: 1px solid #d9d2d2;
+		margin-bottom: 10px;
 	}
 
 }

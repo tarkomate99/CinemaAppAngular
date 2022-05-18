@@ -20,10 +20,12 @@
         </div>
     </div>
     <div class="formGroup">
-        <!-- <input type="text" class="formControl" placeholder="Lefoglalt helyek" value="{{ placesText }}" #places required> -->
         <p>
             Lefoglalt helyek: 
             <ng-container *ngFor="let place of placesText">{{ place }}</ng-container>
+        </p>
+        <p>
+            <mat-icon> attach_money</mat-icon>Ár: {{ price }} Ft
         </p>
     </div> 
     </form>
