@@ -21,3 +21,15 @@ h2{
     width: 6px;
     height: 8px;
 }
+
+.seatBtn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color:transparent;
+
+
+    :hover{
+        background-color: #fff;
+    }
+}

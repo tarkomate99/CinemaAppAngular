@@ -14,7 +14,7 @@
                 <ng-container *ngIf="row == 4"><div class="hidden"></div></ng-container>
                 <ng-container *ngIf="col == 2 || col == 7"><div class="hidden"></div></ng-container>
                 <ng-container *ngIf="row != 3 && col != 2 && col!=7">
-                    <mat-icon>event_seat</mat-icon>
+                    <button name="{{ row+1 }}. sor {{ col }}. szék" class="seatBtn"><mat-icon>event_seat</mat-icon></button>
                 </ng-container>
             </div>
         </div>
