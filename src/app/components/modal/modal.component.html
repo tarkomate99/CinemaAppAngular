@@ -14,17 +14,21 @@
                 <ng-container *ngIf="row == 4"><div class="hidden"></div></ng-container>
                 <ng-container *ngIf="col == 2 || col == 7"><div class="hidden"></div></ng-container>
                 <ng-container *ngIf="row != 3 && col != 2 && col!=7">
-                    <button name="{{ row+1 }}. sor {{ col }}. szék" class="seatBtn"><mat-icon>event_seat</mat-icon></button>
+                    <button class="seatBtn" #seat (click)="logPosition(seatPosition.innerHTML, this.seat)"><p class="btnText" #seatPosition>{{ row+1 }}:{{ col }}</p><mat-icon>event_seat</mat-icon></button>
                 </ng-container>
             </div>
         </div>
     </div>
     <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Lefoglalt helyek" #places required>
+        <!-- <input type="text" class="formControl" placeholder="Lefoglalt helyek" value="{{ placesText }}" #places required> -->
+        <p>
+            Lefoglalt helyek: 
+            <ng-container *ngFor="let place of placesText">{{ place }}</ng-container>
+        </p>
     </div> 
     </form>
     
     <div class="formGroup">
-        <button class="btn btn-primary-outline reserveBtn formControl" (click)="addReserve(date.innerHTML, title.innerHTML, name.value, places.value )">Foglalás véglegesítése</button>
+        <button class="btn btn-primary-outline reserveBtn formControl" (click)="addReserve(date.innerHTML, title.innerHTML, name.value)">Foglalás véglegesítése</button>
     </div>
 </div>

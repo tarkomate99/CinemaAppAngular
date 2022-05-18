@@ -15,6 +15,7 @@ export class ModalComponent implements OnInit {
 
   dateText: string = "";
   movieText: string = "";
+  placesText: string[] = [];
   rows!: Array<number>;
   cols!: Array<number>;
 
@@ -28,19 +29,21 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addReserve(date: string, movie: string, name: string, places: string) {
+  addReserve(date: string, movie: string, name: string) {
     const email = this.authService.userData.email;
 
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
     let id = '';
 
+    let places = this.placesText;
+
     for (let i = 0; i < 20; i++) {
       id += CHARS.charAt(
         Math.floor(Math.random() * CHARS.length)
       )
     }
-    if (name != '' && places != '') {
+    if (name != '' && places.length!=0) {
       const body = { date: date, email: email, id: id, movie: movie, name: name, places: places };
       const headers = { 'Content-Type': 'application/json' };
       this.http.put<any>('https://us-central1-cinemaapp-f8ecd.cloudfunctions.net/app/addReserve', body, { headers })
@@ -51,6 +54,22 @@ export class ModalComponent implements OnInit {
       return;
     }
 
+  }
+
+  logPosition(position: String, element: HTMLElement){
+    console.log(position);
+    if(element.classList.contains("reservedColor")){
+      element.classList.remove("reservedColor");
+      const index = this.placesText.indexOf(position as string,0);
+      this.placesText.splice(index, 1);
+    }else{
+      let row = position.substring(0,position.indexOf(':'));
+      let col = position.substring(position.indexOf(':')+1, position.length);
+      if(parseInt(row) <=this.rows.length && parseInt(col) <=this.cols.length){
+        element.classList.add("reservedColor");
+        this.placesText.push(position as string+', ');
+      }
+    }
   }
 
 
