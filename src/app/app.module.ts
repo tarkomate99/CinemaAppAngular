@@ -30,6 +30,21 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
+
+const dbConfig: DBConfig = {
+  name: 'cinemaDB',
+  version: 1,
+  objectStoresMeta: [{
+    store: 'moviesTable',
+    storeConfig: {keyPath: 'id', autoIncrement: true},
+    storeSchema: [
+      { name: 'date', keypath: 'date', options: { unique: false} },
+      { name: 'imageUrl', keypath: 'imageUrl', options: { unique: true} },
+      { name: 'title', keypath: 'title', options: { unique: true} }
+    ]
+  }]
+};
 
 @NgModule({
   declarations: [
@@ -55,6 +70,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    NgxIndexedDBModule.forRoot(dbConfig),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
