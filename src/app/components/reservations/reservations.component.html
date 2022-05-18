@@ -1,1 +1,18 @@
-<p>reservations works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div *ngIf="reservationList$ | async as reservations">
+	<table class="reservList mat-elevation-z8">
+		<th>Film cím</th>
+		<th>Vetítési dátum</th>
+		<th>Módosítás</th>
+		
+
+		<ng-container *ngFor="let reserv of reservations; index as i">
+			<tr>
+				<td #title>{{ reserv.movie }}</td>
+				<td #date>{{ reserv.date }}</td>
+				<td><button class="btn btn-danger delBtn" (click)="delReserve(reservations[i])"><mat-icon>delete</mat-icon></button></td>
+			</tr>
+		</ng-container>
+
+	</table>
+</div>

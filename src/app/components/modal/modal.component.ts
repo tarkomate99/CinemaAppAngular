@@ -4,6 +4,7 @@ import { ListComponentComponent } from '../list-component/list-component.compone
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -15,7 +16,7 @@ export class ModalComponent implements OnInit {
   dateText: string = "";
   movieText: string = "";
 
-  constructor(private http: HttpClient, public authService: AuthService, private dialogRef: MatDialog) { }
+  constructor(private http: HttpClient, public authService: AuthService, private dialogRef: MatDialog, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +39,7 @@ export class ModalComponent implements OnInit {
       this.http.put<any>('https://us-central1-cinemaapp-f8ecd.cloudfunctions.net/app/addReserve', body, { headers })
         .subscribe(data => console.log(data));
       this.dialogRef.closeAll();
+      this.router.navigate(['reservations']);
     }else{
       return;
     }
