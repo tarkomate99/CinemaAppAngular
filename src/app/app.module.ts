@@ -33,7 +33,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserModule,

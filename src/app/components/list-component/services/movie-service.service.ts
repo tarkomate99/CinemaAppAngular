@@ -8,14 +8,12 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class MovieServiceService {
-	public readonly moviesList$: Observable<Movie[]>;
-
-  constructor() { 
-
-	this.moviesList$ = from(
-		fetch('https://us-central1-cinemaapp-f8ecd.cloudfunctions.net/app/movies', {mode: 'cors'})
-	).pipe(switchMap((res) => res.json()));
 
 
+  constructor(private http: HttpClient) {}
+
+  public getMovies(): Observable<Movie[]> {
+	  const url= "https://us-central1-cinemaapp-f8ecd.cloudfunctions.net/app/movies";
+	  return this.http.get<Movie[]>(url);
   }
 }

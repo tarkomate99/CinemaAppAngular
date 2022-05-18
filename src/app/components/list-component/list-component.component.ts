@@ -15,14 +15,22 @@ import { ModalComponent } from '../modal/modal.component';
 @Injectable({ providedIn: 'root' })
 export class ListComponentComponent {
 
-  public readonly movies$: Observable<Movie[]>;
+  movies = new Array<Movie>();
 
   movieText!: string;
   dateText!: string;
 
   constructor(private readonly moviesService: MovieServiceService, public authService: AuthService, private dialogRef : MatDialog, private modalComponent: ModalComponent) {
     
-    this.movies$ = this.moviesService.moviesList$;
+    moviesService.getMovies().subscribe(response => {
+      this.movies = response.map(item => {
+        return new Movie(
+          item.date,
+          item.imageUrl,
+          item.title
+        );
+      });
+    });
 
   }
 
