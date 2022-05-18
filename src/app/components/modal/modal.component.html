@@ -9,6 +9,17 @@
         <input type="text" class="formControl" placeholder="Név" #name required>
     </div>
     <div class="formGroup">
+        <div class="row" *ngFor="let row of rows; index as i">
+            <div class="col" *ngFor="let col of cols; index as j">
+                <ng-container *ngIf="row == 4"><div class="hidden"></div></ng-container>
+                <ng-container *ngIf="col == 2 || col == 7"><div class="hidden"></div></ng-container>
+                <ng-container *ngIf="row != 3 && col != 2 && col!=7">
+                    <mat-icon>event_seat</mat-icon>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="formGroup">
         <input type="text" class="formControl" placeholder="Lefoglalt helyek" #places required>
     </div> 
     </form>

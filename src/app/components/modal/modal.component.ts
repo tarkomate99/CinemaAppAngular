@@ -15,8 +15,15 @@ export class ModalComponent implements OnInit {
 
   dateText: string = "";
   movieText: string = "";
+  rows!: Array<number>;
+  cols!: Array<number>;
 
-  constructor(private http: HttpClient, public authService: AuthService, private dialogRef: MatDialog, public router: Router) { }
+  constructor(private http: HttpClient, public authService: AuthService, private dialogRef: MatDialog, public router: Router) { 
+
+    this.rows = Array.from(Array(7),(x,i)=>i);
+    this.cols = Array.from(Array(10),(x,i)=>i);
+
+  }
 
   ngOnInit(): void {
   }
