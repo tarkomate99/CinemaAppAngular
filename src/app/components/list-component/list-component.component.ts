@@ -23,7 +23,7 @@ export class ListComponentComponent {
 
   constructor(private readonly moviesService: MovieServiceService, public authService: AuthService, private dialogRef : MatDialog, private modalComponent: ModalComponent, private dbService: NgxIndexedDBService) {
     
-    this.fillIndexDb();
+    //this.fillIndexDb();
 
     this.moviesTable.subscribe((items)=>{
       for(let movie of items){
